@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Alinia
+
+  Created by Saurabh Gupta on 16/11/20.
+  Copyright © 2020 Saurabh Gupta. All rights reserved.
+*/
+
+// Tab Bar Items
+"explore_tab_bar_item" = "Explore";
+
+// Explore Tabs
+"themes_tab" = "Themes";
+"category_tab" = "Category";
+"trending_tab" = "Trending";
+
+// Category Types
+"stocks_category" = "Stocks";
+"etfs_category" = "ETFs";
+"crypto_category" = "Crypto";
+
+// Trending Sections
+"top_gainers_section" = "Top Gainers";
+"top_sellers_section" = "Top Sellers";
+
