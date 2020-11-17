@@ -12,6 +12,10 @@ class TrendingTableViewCell: UITableViewCell {
 
     static let imageHeight: CGFloat = 48
     
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
     let trendingImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -61,30 +65,43 @@ class TrendingTableViewCell: UITableViewCell {
         return label
     }()
     
+    var item: Asset? {
+        didSet {
+            trendingImageView.image = item?.image ?? AlenaImage.assetPlaceholder
+            nameLabel.text = item?.name
+            codeLabel.text = item?.listingCode
+            priceLabel.text = "\(item?.currentPrice ?? 0)$"
+            percentageChangeLabel.text = "\(item?.changePercentage ?? 0)%"
+            percentageChangeLabel.backgroundColor = (item?.changePercentage ?? 0) > 0 ? .systemGreen : .systemRed
+        }
+    }
+    
     fileprivate func addSubViews() {
-        contentView.addSubview(trendingImageView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(codeLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(percentageChangeLabel)
+        addSubview(trendingImageView)
+        addSubview(nameLabel)
+        addSubview(codeLabel)
+        addSubview(priceLabel)
+        addSubview(percentageChangeLabel)
+        
+        setConstraints()
     }
     
     fileprivate func setConstraints() {
         NSLayoutConstraint.activate([
-            trendingImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            trendingImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             trendingImageView.heightAnchor.constraint(equalToConstant: TrendingTableViewCell.imageHeight),
             trendingImageView.widthAnchor.constraint(equalTo: trendingImageView.heightAnchor),
-            trendingImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
+            trendingImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
             nameLabel.leadingAnchor.constraint(equalTo: trendingImageView.trailingAnchor, constant: 16),
             nameLabel.topAnchor.constraint(equalTo: trendingImageView.topAnchor, constant: 0),
             codeLabel.leadingAnchor.constraint(equalTo: trendingImageView.trailingAnchor, constant: 16),
             codeLabel.bottomAnchor.constraint(equalTo: trendingImageView.bottomAnchor, constant: 0),
             priceLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 16),
             priceLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 0),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             percentageChangeLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 16),
             percentageChangeLabel.bottomAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: 0),
-            percentageChangeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            percentageChangeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             percentageChangeLabel.widthAnchor.constraint(equalToConstant: 80)
         ])
     }
@@ -93,21 +110,21 @@ class TrendingTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubViews()
-        setConstraints()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(equity: Equity) {
-        trendingImageView.image = equity.image ?? AlenaImage.equityPlaceholder
-        nameLabel.text = equity.name
-        codeLabel.text = equity.listingCode
-        priceLabel.text = "\(equity.currentPrice)$"
-        percentageChangeLabel.text = "\(equity.changePercentage)%"
-        percentageChangeLabel.backgroundColor = equity.changePercentage > 0 ? .systemGreen : .systemRed
-        selectionStyle = .none
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        trendingImageView.image = nil
+        nameLabel.text = nil
+        codeLabel.text = nil
+        priceLabel.text = nil
+        percentageChangeLabel.text = nil
+        percentageChangeLabel.backgroundColor = nil
     }
-    
 }

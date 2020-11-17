@@ -58,7 +58,11 @@ class TabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewControllers = [homeTabBar, UINavigationController(rootViewController: exploreTabBar), indicesTabBar, socialTabBar, insightsTabBar]
+        viewControllers = [homeTabBar,
+                           UINavigationController(rootViewController: exploreTabBar),
+                           indicesTabBar,
+                           socialTabBar,
+                           insightsTabBar]
         tabBar.tintColor = .systemIndigo
     }
     

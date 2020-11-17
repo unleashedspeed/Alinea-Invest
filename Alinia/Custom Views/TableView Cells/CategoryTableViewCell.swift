@@ -12,6 +12,10 @@ class CategoryTableViewCell: UITableViewCell {
 
     static let imageHeight: CGFloat = 48
     
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
     let categoryImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -41,10 +45,24 @@ class CategoryTableViewCell: UITableViewCell {
         return view
     }()
     
+    var item: CategoryViewModelItem? {
+        didSet {
+            guard let item = item as? CategoryViewModelStandardItem else {
+                return
+            }
+
+            categoryLabel.text = item.name
+            categoryImageView.image = item.image
+            containerView.backgroundColor = item.backgroundColor
+        }
+    }
+    
     fileprivate func addSubViews() {
         containerView.addSubview(categoryImageView)
         containerView.addSubview(categoryLabel)
         contentView.addSubview(containerView)
+        
+        setConstraints()
     }
     
     fileprivate func setConstraints() {
@@ -67,18 +85,19 @@ class CategoryTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         addSubViews()
-        setConstraints()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(category: CategoryTableViewController.Category) {
-        categoryLabel.text = category.localizedString
-        categoryImageView.image = category.image
-        containerView.backgroundColor = category.backgroundColor
-        selectionStyle = .none
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        categoryImageView.image = nil
+        categoryLabel.text = nil
+        containerView.backgroundColor = nil
     }
 
 }

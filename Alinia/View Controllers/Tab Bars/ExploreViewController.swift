@@ -96,7 +96,6 @@ class ExploreViewController: ButtonBarPagerTabStripViewController {
         settings.style.selectedBarHeight = 5
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
-        
     }
 
     // MARK: - PagerTabStripDataSource

@@ -19,6 +19,18 @@
 "etfs_category" = "ETFs";
 "crypto_category" = "Crypto";
 
+// Theme Types
+"diversity_&_inclusion" = "Diversity & Inclusion";
+"bold_biotech" = "Bold Biotech";
+"crypto_central" = "Crypto Central";
+"she_runs_it" = "She runs it";
+"clean_&_green" = "Clean & Green";
+"cannabis_ness" = "Cannabis-ness";
+"power_it" = "Power it";
+"foodie_fun" = "Foodie Fun";
+"art_&_fashion" = "Art & Fashion";
+"home_is_where_the_heart_is" = "Home is where the heart is";
+
 // Trending Sections
 "top_gainers_section" = "Top Gainers";
 "top_sellers_section" = "Top Sellers";

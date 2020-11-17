@@ -22,10 +22,17 @@
 		098EEFD7255B1862008FA927 /* ThemesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFD6255B1862008FA927 /* ThemesCollectionViewController.swift */; };
 		098EEFD9255B1B6B008FA927 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFD8255B1B6B008FA927 /* CategoryTableViewCell.swift */; };
 		098EEFDB256294A0008FA927 /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFDA256294A0008FA927 /* TrendingTableViewCell.swift */; };
-		098EEFE42562B753008FA927 /* Equity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFE32562B753008FA927 /* Equity.swift */; };
+		098EEFE42562B753008FA927 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFE32562B753008FA927 /* AssetModel.swift */; };
 		098EEFE82562C09E008FA927 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 098EEFEA2562C09E008FA927 /* Localizable.strings */; };
 		098EEFED2562C429008FA927 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFEC2562C429008FA927 /* Localizable.swift */; };
 		098EEFEF2562C476008FA927 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFEE2562C476008FA927 /* Localization.swift */; };
+		098EEFF1256410BD008FA927 /* AlenaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFF0256410BD008FA927 /* AlenaImage.swift */; };
+		098EEFF325641131008FA927 /* AssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFF225641131008FA927 /* AssetViewModel.swift */; };
+		098EEFF62564245B008FA927 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFF52564245B008FA927 /* CategoryModel.swift */; };
+		098EEFF9256424AA008FA927 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFF8256424AA008FA927 /* CategoryViewModel.swift */; };
+		09E6CD56256439EE00C1E288 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6CD55256439EE00C1E288 /* ThemeModel.swift */; };
+		09E6CD5925643A4800C1E288 /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6CD5825643A4800C1E288 /* ThemeViewModel.swift */; };
+		09E6CD5B25643D1200C1E288 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6CD5A25643D1200C1E288 /* ThemeCollectionViewCell.swift */; };
 		E4398CBEBE4B4C939E103492 /* Pods_Alinia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E64A42FCB88560F98C07A3 /* Pods_Alinia.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,10 +54,17 @@
 		098EEFD6255B1862008FA927 /* ThemesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesCollectionViewController.swift; sourceTree = "<group>"; };
 		098EEFD8255B1B6B008FA927 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		098EEFDA256294A0008FA927 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
-		098EEFE32562B753008FA927 /* Equity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equity.swift; sourceTree = "<group>"; };
+		098EEFE32562B753008FA927 /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		098EEFE92562C09E008FA927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		098EEFEC2562C429008FA927 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		098EEFEE2562C476008FA927 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		098EEFF0256410BD008FA927 /* AlenaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlenaImage.swift; sourceTree = "<group>"; };
+		098EEFF225641131008FA927 /* AssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewModel.swift; sourceTree = "<group>"; };
+		098EEFF52564245B008FA927 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		098EEFF8256424AA008FA927 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		09E6CD55256439EE00C1E288 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		09E6CD5825643A4800C1E288 /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		09E6CD5A25643D1200C1E288 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		29E64A42FCB88560F98C07A3 /* Pods_Alinia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alinia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B295017AB4C8FA6624A095 /* Pods-Alinia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alinia.debug.xcconfig"; path = "Target Support Files/Pods-Alinia/Pods-Alinia.debug.xcconfig"; sourceTree = "<group>"; };
 		B10CAD2762DF175A45CFB611 /* Pods-Alinia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alinia.release.xcconfig"; path = "Target Support Files/Pods-Alinia/Pods-Alinia.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				098EEFDD2562A96D008FA927 /* TableView Cells */,
+				09E6CD5C25643D1B00C1E288 /* CollectionView Cells */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -140,8 +155,8 @@
 		098EEFE02562A9AD008FA927 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				098EEFD6255B1862008FA927 /* ThemesCollectionViewController.swift */,
 				098EEFD2255B1364008FA927 /* CategoryTableViewController.swift */,
+				098EEFD6255B1862008FA927 /* ThemesCollectionViewController.swift */,
 				098EEFD4255B1546008FA927 /* TrendingTableViewController.swift */,
 			);
 			path = Explore;
@@ -162,7 +177,10 @@
 		098EEFE22562B72E008FA927 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				098EEFE32562B753008FA927 /* Equity.swift */,
+				098EEFF725642461008FA927 /* Category */,
+				098EEFF425642449008FA927 /* Equity */,
+				09E6CD57256439FD00C1E288 /* Theme */,
+				098EEFF0256410BD008FA927 /* AlenaImage.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -175,6 +193,41 @@
 				098EEFEE2562C476008FA927 /* Localization.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		098EEFF425642449008FA927 /* Equity */ = {
+			isa = PBXGroup;
+			children = (
+				098EEFE32562B753008FA927 /* AssetModel.swift */,
+				098EEFF225641131008FA927 /* AssetViewModel.swift */,
+			);
+			path = Equity;
+			sourceTree = "<group>";
+		};
+		098EEFF725642461008FA927 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				098EEFF52564245B008FA927 /* CategoryModel.swift */,
+				098EEFF8256424AA008FA927 /* CategoryViewModel.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		09E6CD57256439FD00C1E288 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				09E6CD55256439EE00C1E288 /* ThemeModel.swift */,
+				09E6CD5825643A4800C1E288 /* ThemeViewModel.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		09E6CD5C25643D1B00C1E288 /* CollectionView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				09E6CD5A25643D1200C1E288 /* ThemeCollectionViewCell.swift */,
+			);
+			path = "CollectionView Cells";
 			sourceTree = "<group>";
 		};
 		3AFAABAC33F733FF7E7993F9 /* Pods */ = {
@@ -311,15 +364,22 @@
 			files = (
 				098EEFD5255B1546008FA927 /* TrendingTableViewController.swift in Sources */,
 				098EEFC7255AF791008FA927 /* TabBarController.swift in Sources */,
+				098EEFF62564245B008FA927 /* CategoryModel.swift in Sources */,
 				098EEFCD255B003E008FA927 /* SocialViewController.swift in Sources */,
+				098EEFF325641131008FA927 /* AssetViewModel.swift in Sources */,
 				098EEFD7255B1862008FA927 /* ThemesCollectionViewController.swift in Sources */,
+				09E6CD56256439EE00C1E288 /* ThemeModel.swift in Sources */,
 				098EEFC9255AF7FE008FA927 /* ExploreViewController.swift in Sources */,
+				09E6CD5925643A4800C1E288 /* ThemeViewModel.swift in Sources */,
 				098EEFB3255AF63D008FA927 /* AppDelegate.swift in Sources */,
+				09E6CD5B25643D1200C1E288 /* ThemeCollectionViewCell.swift in Sources */,
 				098EEFEF2562C476008FA927 /* Localization.swift in Sources */,
-				098EEFE42562B753008FA927 /* Equity.swift in Sources */,
+				098EEFE42562B753008FA927 /* AssetModel.swift in Sources */,
 				098EEFED2562C429008FA927 /* Localizable.swift in Sources */,
 				098EEFB5255AF63D008FA927 /* SceneDelegate.swift in Sources */,
+				098EEFF9256424AA008FA927 /* CategoryViewModel.swift in Sources */,
 				098EEFD1255B0102008FA927 /* IndicesViewController.swift in Sources */,
+				098EEFF1256410BD008FA927 /* AlenaImage.swift in Sources */,
 				098EEFCB255AF839008FA927 /* HomeViewController.swift in Sources */,
 				098EEFD3255B1364008FA927 /* CategoryTableViewController.swift in Sources */,
 				098EEFCF255B0059008FA927 /* InsightsViewController.swift in Sources */,
