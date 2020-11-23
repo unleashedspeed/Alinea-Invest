@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0905295C256BC98400575869 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0905295B256BC98400575869 /* SegmentedControl.swift */; };
 		098EEFB3255AF63D008FA927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFB2255AF63D008FA927 /* AppDelegate.swift */; };
 		098EEFB5255AF63D008FA927 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EEFB4255AF63D008FA927 /* SceneDelegate.swift */; };
 		098EEFBC255AF63E008FA927 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 098EEFBB255AF63E008FA927 /* Assets.xcassets */; };
@@ -33,10 +34,10 @@
 		09E6CD56256439EE00C1E288 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6CD55256439EE00C1E288 /* ThemeModel.swift */; };
 		09E6CD5925643A4800C1E288 /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6CD5825643A4800C1E288 /* ThemeViewModel.swift */; };
 		09E6CD5B25643D1200C1E288 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6CD5A25643D1200C1E288 /* ThemeCollectionViewCell.swift */; };
-		E4398CBEBE4B4C939E103492 /* Pods_Alinia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E64A42FCB88560F98C07A3 /* Pods_Alinia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0905295B256BC98400575869 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		098EEFAF255AF63D008FA927 /* Alinia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alinia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		098EEFB2255AF63D008FA927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		098EEFB4255AF63D008FA927 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,9 +66,6 @@
 		09E6CD55256439EE00C1E288 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
 		09E6CD5825643A4800C1E288 /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
 		09E6CD5A25643D1200C1E288 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
-		29E64A42FCB88560F98C07A3 /* Pods_Alinia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alinia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		76B295017AB4C8FA6624A095 /* Pods-Alinia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alinia.debug.xcconfig"; path = "Target Support Files/Pods-Alinia/Pods-Alinia.debug.xcconfig"; sourceTree = "<group>"; };
-		B10CAD2762DF175A45CFB611 /* Pods-Alinia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alinia.release.xcconfig"; path = "Target Support Files/Pods-Alinia/Pods-Alinia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4398CBEBE4B4C939E103492 /* Pods_Alinia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +84,6 @@
 			children = (
 				098EEFB1255AF63D008FA927 /* Alinia */,
 				098EEFB0255AF63D008FA927 /* Products */,
-				3AFAABAC33F733FF7E7993F9 /* Pods */,
-				EC48DE7FADF90228A50E4FB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +130,7 @@
 			children = (
 				098EEFDD2562A96D008FA927 /* TableView Cells */,
 				09E6CD5C25643D1B00C1E288 /* CollectionView Cells */,
+				0905295B256BC98400575869 /* SegmentedControl.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -230,23 +226,6 @@
 			path = "CollectionView Cells";
 			sourceTree = "<group>";
 		};
-		3AFAABAC33F733FF7E7993F9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				76B295017AB4C8FA6624A095 /* Pods-Alinia.debug.xcconfig */,
-				B10CAD2762DF175A45CFB611 /* Pods-Alinia.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		EC48DE7FADF90228A50E4FB6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				29E64A42FCB88560F98C07A3 /* Pods_Alinia.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,11 +233,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 098EEFC3255AF63E008FA927 /* Build configuration list for PBXNativeTarget "Alinia" */;
 			buildPhases = (
-				DE318813B34988B10F8D4540 /* [CP] Check Pods Manifest.lock */,
 				098EEFAB255AF63D008FA927 /* Sources */,
 				098EEFAC255AF63D008FA927 /* Frameworks */,
 				098EEFAD255AF63D008FA927 /* Resources */,
-				8A49183979EED1B573403227 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -315,48 +292,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		8A49183979EED1B573403227 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Alinia/Pods-Alinia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Alinia/Pods-Alinia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Alinia/Pods-Alinia-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE318813B34988B10F8D4540 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Alinia-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		098EEFAB255AF63D008FA927 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -384,6 +319,7 @@
 				098EEFD3255B1364008FA927 /* CategoryTableViewController.swift in Sources */,
 				098EEFCF255B0059008FA927 /* InsightsViewController.swift in Sources */,
 				098EEFD9255B1B6B008FA927 /* CategoryTableViewCell.swift in Sources */,
+				0905295C256BC98400575869 /* SegmentedControl.swift in Sources */,
 				098EEFDB256294A0008FA927 /* TrendingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +462,6 @@
 		};
 		098EEFC4255AF63E008FA927 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76B295017AB4C8FA6624A095 /* Pods-Alinia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -545,7 +480,6 @@
 		};
 		098EEFC5255AF63E008FA927 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B10CAD2762DF175A45CFB611 /* Pods-Alinia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

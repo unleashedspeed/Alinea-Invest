@@ -7,38 +7,47 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
-class ExploreViewController: ButtonBarPagerTabStripViewController {
+typealias TabBarLocalization = Localization.TabBar
+typealias ExploreTabsLocalization = Localization.ExploreTabs
 
-    let containerScrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+class ExploreViewController: UIViewController {
+
+    enum TabIndex : Int {
+        case categoryTab = 0, themesTab, trendingTab
+    }
+    
+    private var segmentedControl: SegmentedControl!
+    private var pageController: UIPageViewController!
+    private var viewControllers: [UIViewController] = []
+    private var currentPage: TabIndex = .categoryTab
+    
+    lazy var categoryTab: CategoryTableViewController = {
+        var viewController = CategoryTableViewController()
         
-        return view
+        return viewController
     }()
     
-    let topBarView: ButtonBarView = {
-        let view = ButtonBarView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.translatesAutoresizingMaskIntoConstraints = false
+    lazy var themesTab: ThemesCollectionViewController = {
+        var viewController = ThemesCollectionViewController()
         
-        return view
+        return viewController
     }()
     
-    fileprivate func setupNavigationTitleView() {
-        typealias TabBarLocalization = Localization.TabBar
+    lazy var trendingTab: TrendingTableViewController = {
+        var viewController = TrendingTableViewController()
+        
+        return viewController
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-        titleView.backgroundColor = .white
+        viewControllers = [categoryTab, themesTab, trendingTab]
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-        
-        label.text = TabBarLocalization.explore.localizedString
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        titleView.addSubview(label)
-        
-        navigationItem.titleView = titleView
+        setupNavigationBar()
+        setupSegmentedControl()
+        setupPageViewController()
     }
     
     fileprivate func setupNavigationBar() {
@@ -49,13 +58,72 @@ class ExploreViewController: ButtonBarPagerTabStripViewController {
         navigationController?.navigationBar.isTranslucent = false
     }
     
-    override func viewDidLoad() {
-        setupSlidingTab()
+    fileprivate func setupNavigationTitleView() {
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        titleView.backgroundColor = .white
         
-        super.viewDidLoad()
-
-        setupNavigationBar()
-
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        label.text = TabBarLocalization.explore.localizedString
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        titleView.addSubview(label)
+        
+        navigationItem.titleView = titleView
+    }
+    
+    //MARK: - Setup SegmentedControl
+    fileprivate func setupSegmentedControl() {
+        segmentedControl = SegmentedControl(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
+        segmentedControl.backgroundColor = .white
+        segmentedControl.titles = [ExploreTabsLocalization.category.localizedString, ExploreTabsLocalization.themes.localizedString, ExploreTabsLocalization.trending.localizedString]
+        segmentedControl.addTarget(self, action: #selector(onChangeOfSegment(_:)), for: .valueChanged)
+        view.addSubview(segmentedControl)
+    }
+    
+    //MARK: - Setup Pagination
+    private func setupPageViewController() {
+        pageController = UIPageViewController.init(transitionStyle: .scroll, navigationOrientation: UIPageViewController.NavigationOrientation.horizontal, options: nil)
+        pageController.view.backgroundColor = .clear
+        pageController.delegate = self
+        pageController.dataSource = self
+        pageController.setViewControllers([categoryTab], direction: .forward, animated: false, completion: nil)
+        addChild(pageController)
+        view.addSubview(pageController.view)
+        pageController.didMove(toParent: self)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.pageController.view.frame = CGRect(x: 0, y: self.segmentedControl.frame.maxY, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        }
+    }
+    
+    fileprivate func indexof(_ viewController: UIViewController) -> Int {
+        return viewControllers.firstIndex(of: viewController) ?? -1
+    }
+    
+    // Changes the currentPage to selectedSegment and direction to switch tab
+    @objc func onChangeOfSegment(_ sender: SegmentedControl) {
+        let selectedTab = TabIndex(rawValue: sender.selectedSegmentIndex)
+        switch selectedTab {
+        case .categoryTab:
+            pageController.setViewControllers([viewControllers[sender.selectedSegmentIndex]], direction: .reverse, animated: true, completion: nil)
+            currentPage = .categoryTab
+        case .themesTab:
+            if currentPage.rawValue > 1 {
+                pageController.setViewControllers([viewControllers[sender.selectedSegmentIndex]], direction: .reverse, animated: true, completion: nil)
+            } else {
+                pageController.setViewControllers([viewControllers[sender.selectedSegmentIndex]], direction: .forward, animated: true, completion: nil)
+            }
+            currentPage = .themesTab
+        case .trendingTab:
+            if currentPage.rawValue < 2 {
+                pageController.setViewControllers([viewControllers[sender.selectedSegmentIndex]], direction: .forward, animated: true, completion: nil)
+            } else {
+                pageController.setViewControllers([viewControllers[sender.selectedSegmentIndex]], direction: .reverse, animated: true, completion: nil)
+            }
+            currentPage = .trendingTab
+        default:
+            break
+        }
     }
     
     @objc func menuTapped() {
@@ -65,46 +133,43 @@ class ExploreViewController: ButtonBarPagerTabStripViewController {
     @objc func notificationsTapped() {
         //PLACEHOLDER: for action when notifications button is tapped
     }
+
+}
+
+//MARK: - Pagination Delegate Methods
+extension ExploreViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    // MARK: - PagerTabStrip View Setup
-    private func setupSlidingTab(){
-        containerView = containerScrollView
-        buttonBarView = topBarView
-        
-        self.view.addSubview(topBarView)
-        self.view.addSubview(containerScrollView)
-        
-        NSLayoutConstraint.activate([
-            self.topBarView.heightAnchor.constraint(equalToConstant: 44),
-            self.topBarView.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            self.topBarView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            self.topBarView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            self.containerScrollView.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            self.containerScrollView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            self.containerScrollView.topAnchor.constraint(equalTo: self.topBarView.bottomAnchor, constant: 0),
-            self.containerScrollView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        ])
-        
-        settings.style.buttonBarBackgroundColor = .white
-        settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.selectedBarBackgroundColor = .systemIndigo
-        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
-            guard changeCurrentIndex == true else { return }
-            oldCell?.label.textColor = .black
-            newCell?.label.textColor = .systemIndigo
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        var index = indexof(viewController)
+        if index != -1 {
+            index = index - 1
         }
-        settings.style.selectedBarHeight = 5
-        settings.style.buttonBarMinimumLineSpacing = 0
-        settings.style.buttonBarItemsShouldFillAvailableWidth = true
-    }
-
-    // MARK: - PagerTabStripDataSource
-    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let categoryTableViewController = CategoryTableViewController()
-        let themesCollectionViewController = ThemesCollectionViewController()
-        let trendingTableViewController = TrendingTableViewController()
         
-        return [categoryTableViewController, themesCollectionViewController, trendingTableViewController]
+        if index < 0 {
+            return nil
+        } else {
+            return viewControllers[index]
+        }
+    }
+        
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        var index = indexof(viewController)
+        if index != -1 {
+            index = index + 1
+        }
+        
+        if index >= viewControllers.count {
+            return nil
+        } else {
+            return viewControllers[index]
+        }
     }
 
+    func pageViewController(_ pageViewController1: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed, let lastViewController = pageViewController1.viewControllers?.last {
+            let index = indexof(lastViewController)
+            currentPage = TabIndex(rawValue: index) ?? .categoryTab
+            self.segmentedControl.updateSegmentedControlSegment(with: index)
+        }
+    }
 }

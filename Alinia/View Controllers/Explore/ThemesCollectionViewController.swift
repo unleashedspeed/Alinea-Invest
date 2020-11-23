@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 class ThemesCollectionViewController: UIViewController {
 
@@ -52,11 +51,5 @@ class ThemesCollectionViewController: UIViewController {
 
         setUpCollectionView()
     }
-}
-
-//MARK: IndicatorInfoProvider
-extension ThemesCollectionViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: Localization.ExploreTabs.themes.localizedString)
-    }
+    
 }

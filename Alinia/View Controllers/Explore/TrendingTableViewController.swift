@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 class TrendingTableViewController: UITableViewController {
     
@@ -28,11 +27,4 @@ class TrendingTableViewController: UITableViewController {
         configureTableView()
     }
 
-}
-
-//MARK: IndicatorInfoProvider
-extension TrendingTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: Localization.ExploreTabs.trending.localizedString)
-    }
 }
